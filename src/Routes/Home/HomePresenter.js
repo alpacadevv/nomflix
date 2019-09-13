@@ -20,7 +20,7 @@ const HomePresenter = ({
 }) => (
   <>
     <Helmet>
-      <title>Movies | Nomflix</title>
+      <title>Moviess | Nomflix</title>
     </Helmet>
     {loading ? (
       <Loader />
