@@ -4,11 +4,11 @@ import { IContentDetail } from 'types';
 import { moviesApi, tvApi } from 'api';
 import Presenter from './DetailPresenter';
 
-interface TDetailContainerProps {
+interface IDetailContainerProps {
   id: string;
 }
 
-const DetailContainer: React.FC<RouteComponentProps<TDetailContainerProps>> = ({
+const DetailContainer: React.FC<RouteComponentProps<IDetailContainerProps>> = ({
   location: { pathname },
   match: {
     params: { id }
