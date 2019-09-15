@@ -41,7 +41,7 @@ const DetailContainer: React.FC<RouteComponentProps<IDetailContainerProps>> = ({
         setLoading(false);
       }
     })();
-  });
+  }, []);
 
   return (
     <Presenter

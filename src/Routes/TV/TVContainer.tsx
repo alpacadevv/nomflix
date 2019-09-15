@@ -34,7 +34,7 @@ const TVContainer = () => {
         setLoading(false);
       }
     })();
-  });
+  }, []);
 
   return (
     <Presenter

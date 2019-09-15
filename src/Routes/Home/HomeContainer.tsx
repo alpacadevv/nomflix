@@ -31,7 +31,7 @@ const HomeContainer: React.FC = () => {
         setLoading(false);
       }
     })();
-  });
+  }, []);
 
   return (
     <Presenter
