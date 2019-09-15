@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Container = styled.div`
   font-size: 12px;
 `;
 
-const Image = styled.div`
+const Image = styled.div<{ bgUrl: string }>`
   background-image: url(${props => props.bgUrl});
   height: 180px;
   background-size: cover;
@@ -47,7 +46,23 @@ const Year = styled.span`
   color: rgba(255, 255, 255, 0.5);
 `;
 
-const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
+interface IPosterProps {
+  id: number;
+  imageUrl?: string;
+  title: string;
+  rating?: number;
+  year?: string;
+  isMovie?: boolean;
+}
+
+const Poster: React.FC<IPosterProps> = ({
+  id,
+  imageUrl,
+  title,
+  rating,
+  year,
+  isMovie = false,
+}) => (
   <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
     <Container>
       <ImageContainer>
@@ -72,14 +87,5 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
     </Container>
   </Link>
 );
-
-Poster.propTypes = {
-  id: PropTypes.number.isRequired,
-  imageUrl: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  rating: PropTypes.number,
-  year: PropTypes.string,
-  isMovie: PropTypes.bool
-};
 
 export default Poster;

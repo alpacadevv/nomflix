@@ -10,7 +10,7 @@ const Container = styled.div`
   margin-top: 20px;
 `;
 
-const Loader = () => (
+const Loader: React.FC = () => (
   <Container>
     <span role="img" aria-label="Loading">⏰</span>
   </Container>

@@ -20,7 +20,7 @@ const List = styled.ul`
   display: flex;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ current: boolean }>`
   width: 80px;
   height: 50px;
   text-align: center;

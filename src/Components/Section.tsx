@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -20,19 +19,16 @@ const Grid = styled.div`
   grid-gap: 25px;
 `;
 
-const Section = ({ title, children }) => (
+interface ISectionProps {
+  title?: string;
+  children?: ReactNode;
+}
+
+const Section: React.FC<ISectionProps> = ({ title, children }) => (
   <Container>
     <Title>{title}</Title>
     <Grid>{children}</Grid>
   </Container>
 );
-
-Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
 
 export default Section;
