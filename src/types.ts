@@ -18,7 +18,7 @@ interface IMovie extends ICommonProperties {
   video: boolean;
 }
 
-interface ITV extends ICommonProperties {
+export interface ITV extends ICommonProperties {
   first_air_date: string; //
   name: string;
   original_country: string[];
