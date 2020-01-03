@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Content } from 'types'
 import Loader from 'Components/Loader'
@@ -39,20 +39,35 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
   popular,
   error,
   loading,
-}) => (
-  <>
-    <Meta title="Movie!!!!!!" />
-    {loading ? (
-      <Loader />
-    ) : (
-      <Container>
-        <SectionAndPosters title="Upcoming Movies!" posters={upcoming} isMovie={true} />
-        <SectionAndPosters title="Now Playing" posters={nowPlaying} isMovie={true} />
-        <SectionAndPosters title="Popular Movies" posters={popular} isMovie={true} />
-        {error && <Message color="#e74c3c" text={error} />}
-      </Container>
-    )}
-  </>
-)
+}) => {
+  const [msg, setMsg] = useState('')
+
+  const handleBananaBtnClick = () => {
+    setMsg('banana')
+  }
+
+  const handleAppleBtnClick = () => {
+    setMsg('apple')
+  }
+
+  return (
+    <>
+      <Meta title="Movie!!!!!!" />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container>
+          <button className="bananaBtn" onClick={handleBananaBtnClick}>Banana</button>
+          <button className="appleBtn" onClick={handleAppleBtnClick}>apple</button>
+          <p>{msg}</p>
+          <SectionAndPosters title="Upcoming Movies!" posters={upcoming} isMovie={true} />
+          <SectionAndPosters title="Now Playing" posters={nowPlaying} isMovie={true} />
+          <SectionAndPosters title="Popular Movies" posters={popular} isMovie={true} />
+          {error && <Message color="#e74c3c" text={error} />}
+        </Container>
+      )}
+    </>
+  )
+}
 
 export default HomePresenter
