@@ -6,6 +6,21 @@ import Loader from 'Components/Loader'
 import Message from 'Components/Message'
 import SectionAndPosters from 'Components/SectionAndPosters'
 
+import ReactGA from 'react-ga'
+
+ReactGA.initialize('UA-155258262-1')
+
+const analyticsScriptTag = () => {
+  return {
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-155258262-1');
+    `
+  };
+};
+
 const Container = styled.div`
   padding: 20px;
 `
@@ -28,6 +43,11 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
   <>
     <Helmet>
       <title>Moviess | Nomflix</title>
+      <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-155258262-1"
+        />
+      <script dangerouslySetInnerHTML={analyticsScriptTag()} />
       <script
       dangerouslySetInnerHTML={{
         __html: `
