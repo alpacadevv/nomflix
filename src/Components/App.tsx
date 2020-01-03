@@ -10,14 +10,20 @@ import Language from './Context'
 
 import translations from './translations'
 
-const App: React.FC = () => (
-  <>
-    <GlobalStyles />
-    <Router />
-    <Language defaultLanguage="en" translations={translations}>
-      <Screen />
-    </Language>
-  </>
-)
+import ReactGA from 'react-ga'
+
+ReactGA.initialize('UA-155258262-1')
+
+const App: React.FC = () => {
+  return (
+    <>
+      <GlobalStyles />
+      <Router />
+      <Language defaultLanguage="en" translations={translations}>
+        <Screen />
+      </Language>
+    </>
+  )
+}
 
 export default App
