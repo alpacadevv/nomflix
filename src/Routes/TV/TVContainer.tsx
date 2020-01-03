@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { IContent } from 'types';
-import { tvApi } from 'api';
-import Presenter from './TVPresenter';
+import React, { useState, useEffect } from 'react'
+import { Content } from 'types'
+import { tvApi } from 'api'
+import Presenter from './TVPresenter'
 
 const TVContainer = () => {
-  const [topRated, setTopRated] = useState<IContent[]>([]);
-  const [popular, setPopular] = useState<IContent[]>([]);
-  const [airingToday, setAiringToday] = useState<IContent[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>('');
+  const [topRated, setTopRated] = useState<Content[]>([])
+  const [popular, setPopular] = useState<Content[]>([])
+  const [airingToday, setAiringToday] = useState<Content[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       try {
         const {
-          data: { results: topRated }
-        } = await tvApi.topRated();
-  
+          data: { results: topRated },
+        } = await tvApi.topRated()
+
         const {
-          data: { results: popular }
-        } = await tvApi.popular();
-        
+          data: { results: popular },
+        } = await tvApi.popular()
+
         const {
-          data: { results: airingToday }
-        } = await tvApi.airingToday();
-  
-        setTopRated(topRated);
-        setPopular(popular);
-        setAiringToday(airingToday);
+          data: { results: airingToday },
+        } = await tvApi.airingToday()
+
+        setTopRated(topRated)
+        setPopular(popular)
+        setAiringToday(airingToday)
       } catch (e) {
-        setError('Can\'t find TV information.');
+        setError("Can't find TV information.")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    })();
-  }, []);
+    })()
+  }, [])
 
   return (
     <Presenter
@@ -44,7 +44,7 @@ const TVContainer = () => {
       loading={loading}
       error={error}
     />
-  );
-};
+  )
+}
 
-export default TVContainer;
+export default TVContainer

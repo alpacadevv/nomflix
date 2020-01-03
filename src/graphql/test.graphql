@@ -1,0 +1,86 @@
+type Schedule {
+  id: ID!
+
+  title: String!
+
+  description: String
+
+  events: [Event!]!
+
+  period: Int
+
+  createdAt: Date!
+
+  updatedAt: Date!
+}
+
+type Event {
+  date: Date!
+}
+
+type ScheduleConnection {
+  nodes: [Schedule]
+  totalCount: Int!
+}
+
+enum ScheduleOrderField {
+  ID
+  TITLE
+  CREATED_AT
+  UPDATED_AT
+}
+
+input ScheduleOrder {
+  field: ScheduleOrderField!
+  direction: OrderDirection
+}
+
+input ScheduleInput {
+  title: String
+  description: String
+  events: [EventInput]
+  period: Int
+}
+
+input EventInput {
+  date: Date!
+}
+
+input ScheduleFilters {
+  title: String
+  description: String
+  createdAt: DateRange
+  updatedAt: DateRange
+}
+
+type ScheduleCreatePayload {
+  schedule: Schedule
+}
+
+type ScheduleUpdatePayload {
+  schedule: Schedule
+}
+
+type ScheduleDeletePayload {
+  schedule: Schedule
+}
+
+type ScheduleDeleteManyPayload {
+  schedules: [Schedule!]
+}
+
+type Query {
+  schedule(id: ID!): Schedule
+  schedules(
+    filterBy: ScheduleFilters
+    orderBy: ScheduleOrder
+    pagination: Pagination
+  ): ScheduleConnection!
+}
+
+type Mutation {
+  scheduleCreate(input: ScheduleInput!): ScheduleCreatePayload
+  scheduleUpdate(id: ID!, input: ScheduleInput!): ScheduleUpdatePayload
+  scheduleDelete(id: ID!): ScheduleDeletePayload
+  scheduleDeleteMany(ids: [ID!]!): ScheduleDeleteManyPayload
+}

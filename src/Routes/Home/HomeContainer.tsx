@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { IContent } from 'types';
-import { moviesApi } from 'api';
-import Presenter from './HomePresenter';
+import React, { useState, useEffect } from 'react'
+import { Content } from 'types'
+import { moviesApi } from 'api'
+import Presenter from './HomePresenter'
 
 const HomeContainer: React.FC = () => {
-  const [nowPlaying, setNowPlaying] = useState<IContent[]>([]);
-  const [upcoming, setUpcoming] = useState<IContent[]>([]);
-  const [popular, setPopular] = useState<IContent[]>([]);
-  const [error, setError] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
+  const [nowPlaying, setNowPlaying] = useState<Content[]>([])
+  const [upcoming, setUpcoming] = useState<Content[]>([])
+  const [popular, setPopular] = useState<Content[]>([])
+  const [error, setError] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       try {
         const {
-          data: { results: nowPlaying }
-        } = await moviesApi.nowPlaying();
+          data: { results: nowPlaying },
+        } = await moviesApi.nowPlaying()
         const {
-          data: { results: upcoming }
-        } = await moviesApi.upComing();
+          data: { results: upcoming },
+        } = await moviesApi.upComing()
         const {
-          data: { results: popular }
-        } = await moviesApi.popular();
-        setNowPlaying(nowPlaying);
-        setUpcoming(upcoming);
-        setPopular(popular);
+          data: { results: popular },
+        } = await moviesApi.popular()
+        setNowPlaying(nowPlaying)
+        setUpcoming(upcoming)
+        setPopular(popular)
       } catch {
-        setError('Can\'t find movies information.');
+        setError("Can't find movies information.")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    })();
-  }, []);
+    })()
+  }, [])
 
   return (
     <Presenter
@@ -42,6 +42,6 @@ const HomeContainer: React.FC = () => {
       loading={loading}
     />
   )
-};
+}
 
-export default HomeContainer;
+export default HomeContainer

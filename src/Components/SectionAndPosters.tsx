@@ -1,16 +1,18 @@
-import React from 'react';
-import { IContent } from 'types';
-import Section from './Section';
-import Poster from './Poster';
+import React from 'react'
+import { Content } from 'types'
+import Section from './Section'
+import Poster from './Poster'
 
-interface ISectionAndPostersProps {
-  title: string;
-  posters: IContent[];
-  isMovie?: boolean;
+interface SectionAndPostersProps {
+  title: string
+  posters: Content[]
+  isMovie?: boolean
 }
 
-const SectionAndPosters: React.FC<ISectionAndPostersProps> = ({
-  title, posters, isMovie = false
+const SectionAndPosters: React.FC<SectionAndPostersProps> = ({
+  title,
+  posters,
+  isMovie = false,
 }) => (
   <>
     {posters && posters.length > 0 && (
@@ -29,6 +31,6 @@ const SectionAndPosters: React.FC<ISectionAndPostersProps> = ({
       </Section>
     )}
   </>
-);
+)
 
-export default SectionAndPosters;
+export default SectionAndPosters

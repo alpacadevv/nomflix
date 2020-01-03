@@ -1,21 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import Helmet from 'react-helmet';
-import { IContent } from 'types';
-import Loader from 'Components/Loader';
-import Message from 'Components/Message';
-import SectionAndPosters from 'Components/SectionAndPosters';
+import React from 'react'
+import styled from 'styled-components'
+import Helmet from 'react-helmet'
+import { Content } from 'types'
+import Loader from 'Components/Loader'
+import Message from 'Components/Message'
+import SectionAndPosters from 'Components/SectionAndPosters'
 
 const Container = styled.div`
   padding: 20px;
-`;
+`
 
 interface ITVPresenterProps {
-  topRated: IContent[];
-  popular: IContent[];
-  airingToday: IContent[];
-  loading: boolean;
-  error: string;
+  topRated: Content[]
+  popular: Content[]
+  airingToday: Content[]
+  loading: boolean
+  error: string
 }
 
 const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({
@@ -33,22 +33,13 @@ const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({
       <Loader />
     ) : (
       <Container>
-        <SectionAndPosters
-          title="Top Rated Shows"
-          posters={topRated}
-        />
-        <SectionAndPosters
-          title="Popular Shows"
-          posters={popular}
-        />
-        <SectionAndPosters
-          title="AiringToday Shows"
-          posters={airingToday}
-        />
+        <SectionAndPosters title="Top Rated Shows" posters={topRated} />
+        <SectionAndPosters title="Popular Shows" posters={popular} />
+        <SectionAndPosters title="AiringToday Shows" posters={airingToday} />
         {error && <Message color="#e74c3c" text={error} />}
       </Container>
     )}
   </>
-);
+)
 
-export default TVPresenter;
+export default TVPresenter

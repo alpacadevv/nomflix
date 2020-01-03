@@ -1,1 +1,1 @@
-export { default } from './DetailContainer';//hihi
+export { default } from './DetailContainer' //hihi
