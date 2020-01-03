@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 import { ContentDetail } from 'types'
 import Loader from 'Components/Loader'
 import Message from 'Components/Message'
+import Meta from 'Components/Meta'
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -78,19 +78,15 @@ interface IDetailPresenterProps {
 const DetailPresenter: React.FC<IDetailPresenterProps> = ({ result, error, loading }) =>
   loading ? (
     <>
-      <Helmet>
-        <title>Loading | Nomflix</title>
-      </Helmet>
+      <Meta title={`Loading!!!!!`} />
       <Loader />
     </>
   ) : (
     <Container>
-      <Helmet>
-        <title>{`${result &&
+      <Meta title={`${result &&
           (result.original_title
             ? result.original_title
-            : result.original_name)} | Nomflix`}</title>
-      </Helmet>
+            : result.original_name)}!!!!!`} />
       <Backdrop
         bgImage={
           result && result.backdrop_path

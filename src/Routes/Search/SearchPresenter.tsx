@@ -1,10 +1,10 @@
 import React, { SyntheticEvent, FormEvent } from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 import { Content } from 'types'
 import Loader from 'Components/Loader'
 import Message from 'Components/Message'
 import SectionAndPosters from 'Components/SectionAndPosters'
+import Meta from 'Components/Meta'
 
 const Container = styled.div`
   padding: 20px;
@@ -41,9 +41,7 @@ const SearchPresenter: React.FunctionComponent<SearchPresenterProps> = ({
   updateTerm,
 }) => (
   <Container>
-    <Helmet>
-      <title>Search | Nomflix</title>
-    </Helmet>
+    <Meta title={`Search!!!!!!`} />
     <Form onSubmit={handleSubmit}>
       <Input placeholder="Search Movies or TV Shows..." value={searchTerm} onChange={updateTerm} />
     </Form>
