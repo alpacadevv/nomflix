@@ -48,7 +48,7 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
           src="https://www.googletagmanager.com/gtag/js?id=UA-155258262-1"
         />
       <script dangerouslySetInnerHTML={analyticsScriptTag()} />
-      <script
+      {/* <script
       dangerouslySetInnerHTML={{
         __html: `
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -58,7 +58,7 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
         })(window,document,'script','dataLayer','GTM-WHC7BKH');
         `,
         }}
-      />
+      /> */}
     </Helmet>
     {loading ? (
       <Loader />
