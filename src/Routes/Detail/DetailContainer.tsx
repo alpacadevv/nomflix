@@ -39,7 +39,7 @@ const DetailContainer: React.FC<RouteComponentProps<IDetailContainerProps>> = ({
         setLoading(false)
       }
     })()
-  }, [])
+  }, [isMovie])
 
   return <Presenter result={result} error={error} loading={loading} />
 }
