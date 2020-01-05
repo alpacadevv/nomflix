@@ -57,7 +57,7 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
         <Loader />
       ) : (
         <Container>
-          <iframe style={{ width: '100%', height: 500 }} src="http://localhost:3000/" />
+          <iframe style={{ width: '100%', height: 500 }} src="https://tgtest.netlify.com" />
           <button className="bananaBtn" onClick={handleBananaBtnClick}>Banana</button>
           <button className="appleBtn" onClick={handleAppleBtnClick}>apple</button>
           <button className="newBtn" onClick={handleAppleBtnClick}>newBtn</button>
