@@ -57,8 +57,10 @@ const HomePresenter: React.FC<IHomePresenterProps> = ({
         <Loader />
       ) : (
         <Container>
+          <iframe style={{ width: '100%', height: 500 }} src="http://localhost:3000/" />
           <button className="bananaBtn" onClick={handleBananaBtnClick}>Banana</button>
           <button className="appleBtn" onClick={handleAppleBtnClick}>apple</button>
+          <button className="newBtn" onClick={handleAppleBtnClick}>newBtn</button>
           <p>{msg}</p>
           <SectionAndPosters title="Upcoming Movies!" posters={upcoming} isMovie={true} />
           <SectionAndPosters title="Now Playing" posters={nowPlaying} isMovie={true} />
